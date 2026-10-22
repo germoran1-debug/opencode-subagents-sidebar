@@ -10,17 +10,8 @@ adds that view back, using the TUI slot API only, so nothing in the core changes
 
 ## Install
 
-This package is not published to npm, so install it straight from Git. OpenCode
-accepts npm-compatible Git specs, and nothing is built locally:
-
 ```sh
-opencode plugin add github:germoran1-debug/opencode-subagents-sidebar
-```
-
-Pin a release instead of tracking `main` when you want stability:
-
-```sh
-opencode plugin add 'github:germoran1-debug/opencode-subagents-sidebar#v0.1.0'
+opencode plugin add opencode-subagents-sidebar
 ```
 
 It is a **terminal-only** plugin, so it also belongs in the `plugins` array of
@@ -29,11 +20,19 @@ add the entry there yourself:
 
 ```json title="cli.json"
 {
-  "plugins": ["github:germoran1-debug/opencode-subagents-sidebar"]
+  "plugins": ["opencode-subagents-sidebar"]
 }
 ```
 
 Then restart the terminal UI.
+
+### From Git instead
+
+OpenCode also installs npm-compatible Git specs, which needs no registry:
+
+```sh
+opencode plugin add github:germoran1-debug/opencode-subagents-sidebar
+```
 
 ### Local checkout instead
 
