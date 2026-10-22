@@ -1,3 +1,4 @@
+/** @jsxImportSource @opentui/solid */
 /**
  * subagents-sidebar - list the current session's subagent child sessions in the
  * TUI sidebar, click one to open it.
