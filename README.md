@@ -68,6 +68,20 @@ JSX. Everything else — notably `@opencode/plugin` — is provided by the runni
 OpenCode, which resolves that import to its own copy, so it is declared as an
 optional peer and never installed. It stays a dev dependency so the source typechecks.
 
+### Known advisories
+
+`npm audit` and Socket report two critical advisories against `seroval`, reached
+through `solid-js`. They are inherited, not introduced here: `@opentui/solid@0.6.6`
+pins `solid-js` to exactly `1.9.12` as a peer, and that release depends on
+`seroval@~1.5.0`; the advisories are fixed in `seroval@>=1.6.3`.
+
+The affected code is seroval's JSON deserialization and hydration path. This plugin
+renders inside an already-running terminal UI: it does no SSR, no hydration and no
+deserialization, so that path is never reached. The same libraries ship inside
+OpenCode itself. Nothing in this package can pin around it, because npm only applies
+`overrides` from the root of an install, and the exact peer pin wins. The report
+clears as soon as `@opentui/solid` widens that peer.
+
 ## How it works
 
 One file, `src/tui.tsx`. It appends a component to the `sidebar.content` slot,
