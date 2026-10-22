@@ -19,6 +19,11 @@ jobs:
         with:
           node-version: 24
           registry-url: https://registry.npmjs.org
+          package-manager-cache: false
+
+      # Trusted publishing needs npm >= 11.5.1; do not rely on whatever ships with the runner.
+      - name: Update npm
+        run: npm install -g npm@latest
 
       - name: Install
         run: npm install --no-audit --no-fund
@@ -26,8 +31,7 @@ jobs:
       - name: Typecheck
         run: npm run typecheck
 
-      # The package ships as source, so there is no build step before this.
+      # No token and no build step: OIDC authenticates this workflow, and the
+      # package ships as source. npm attaches provenance automatically.
       - name: Publish
-        run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm publish
