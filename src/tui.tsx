@@ -23,6 +23,16 @@
  * Defensive on purpose: a throw inside a sidebar render can blank the whole panel,
  * so the session list is type-checked and every theme lookup has a fallback. Status
  * is read once per child when the list is built, not on every row render.
+ *
+ * The jsxImportSource pragma on the first line is load-bearing. The loader imports
+ * a plugin entry with Bun's default JSX transform, which assumes React, and a
+ * tsconfig inside an installed package does not apply to that import; without the
+ * pragma this file fails to load with "Cannot find package 'react'". tsconfig.json
+ * only exists so `npm run typecheck` agrees with the pragma.
+ *
+ * @opentui/solid and solid-js are the only runtime dependencies, because the host
+ * does not supply them. @opencode/plugin is supplied by the host and stays an
+ * optional peer; as a dependency it drags in the whole server tree.
  */
 import { Plugin } from "@opencode/plugin/tui"
 import { createMemo, For, Show } from "solid-js"

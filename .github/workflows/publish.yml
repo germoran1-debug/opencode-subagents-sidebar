@@ -1,3 +1,6 @@
+# Publishing is npm trusted publishing: OIDC authenticates this workflow, so no
+# token is stored anywhere. The package must already exist and have this workflow
+# attached as a trusted publisher; publishing access is set to disallow tokens.
 name: publish
 
 on:

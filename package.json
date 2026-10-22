@@ -1,6 +1,6 @@
 {
   "name": "opencode-subagents-sidebar",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "OpenCode TUI sidebar that lists the current session's subagent sessions and opens one on click.",
   "type": "module",
   "scripts": {
@@ -49,3 +49,4 @@
     "typescript": "^5.9.3"
   }
 }
+
