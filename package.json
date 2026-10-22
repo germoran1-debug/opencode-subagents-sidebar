@@ -1,6 +1,6 @@
 {
   "name": "opencode-subagents-sidebar",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "OpenCode TUI sidebar that lists the current session's subagent sessions and opens one on click.",
   "type": "module",
   "scripts": {
@@ -30,23 +30,15 @@
   "bugs": {
     "url": "https://github.com/germoran1-debug/opencode-subagents-sidebar/issues"
   },
-  "dependencies": {},  "peerDependencies": {
-    "@opencode/plugin": ">=2.1.2",
-    "@opentui/core": ">=0.6.6",
+  "dependencies": {
     "@opentui/solid": ">=0.6.6",
     "solid-js": ">=1.9.0"
   },
+  "peerDependencies": {
+    "@opencode/plugin": ">=2.1.2"
+  },
   "peerDependenciesMeta": {
     "@opencode/plugin": {
-      "optional": true
-    },
-    "@opentui/core": {
-      "optional": true
-    },
-    "@opentui/solid": {
-      "optional": true
-    },
-    "solid-js": {
       "optional": true
     }
   },
@@ -58,5 +50,6 @@
     "typescript": "^5.9.3"
   }
 }
+
 
 

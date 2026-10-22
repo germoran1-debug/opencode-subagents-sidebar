@@ -63,10 +63,10 @@ header and a `+N more` row says what was left out.
 
 OpenCode V2 (built and tested against v2.1.2) and a terminal that renders the TUI.
 
-The package has no runtime dependencies. Every library it uses — `@opencode/plugin`,
-`solid-js`, `@opentui/*` — comes from the running OpenCode, which resolves those
-imports to its own copies. They are listed as optional peers so nothing extra is
-installed, and as dev dependencies so the source still typechecks on its own.
+The only runtime dependencies are `solid-js` and `@opentui/solid`, which render the
+JSX. Everything else — notably `@opencode/plugin` — is provided by the running
+OpenCode, which resolves that import to its own copy, so it is declared as an
+optional peer and never installed. It stays a dev dependency so the source typechecks.
 
 ## How it works
 
