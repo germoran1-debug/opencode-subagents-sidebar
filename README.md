@@ -76,6 +76,15 @@ navigates with `context.ui.router.navigate`. Collapse state is kept in
 It is defensive on purpose: a throw inside a sidebar render can blank the whole
 panel, so the session list is type-checked and every theme lookup has a fallback.
 
+## Releasing
+
+Push a `v*` tag and GitHub Actions publishes the package to npm, after a strict
+typecheck and with a provenance attestation. There is no build step: the package
+is the source.
+
+The workflow needs an `NPM_TOKEN` repository secret holding an npm **Automation**
+token, which is also what lets it publish without a 2FA prompt.
+
 ## License
 
 MIT
