@@ -62,8 +62,11 @@ header and a `+N more` row says what was left out.
 ## Requirements
 
 OpenCode V2 (built and tested against v2.1.2) and a terminal that renders the TUI.
-JSX plugins share the host's `solid-js` and `@opentui` packages, declared here as
-peer dependencies.
+
+The package has no runtime dependencies. Every library it uses — `@opencode/plugin`,
+`solid-js`, `@opentui/*` — comes from the running OpenCode, which resolves those
+imports to its own copies. They are listed as optional peers so nothing extra is
+installed, and as dev dependencies so the source still typechecks on its own.
 
 ## How it works
 
